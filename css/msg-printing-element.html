@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Dom Elements</title>
+		<style>
+			*{
+				transition: all 0.5s easee;
+			}
+			.box{
+				width: 800px;
+				height: 300px;
+				background-image: url('../../JAVASCRIPT/class_learning/images/dom-bg.webp');
+				background-position:center;
+				background-repeat: no-repeat;
+				background-size: cover;
+				display: flex;
+				margin: auto;
+ 			}
+			.sqr{
+				width: 200px;
+				height: 200px;
+				background-color: rgb(255, 255, 255);
+				border-radius: 50%;
+				margin: 40px auto;
+				text-align: center;
+				line-height: 190px;
+				font-size: 30px;
+				font-family: Verdana, Geneva, Tahoma, sans-serif;
+				font-weight: 600;
+			}
+			.btn{
+				width: 80px;
+				display: block;
+				padding: 20px 25px;
+				background-color: black;
+				font-family: Verdana, Geneva, Tahoma, sans-serif;
+				color: white;
+				font-size: 16px;
+				font-weight: 600;
+ 				box-shadow: -5px 7px 4px 0px rgba(0, 0, 0, 0.402);
+				border-radius: 5px;
+				margin: 20px auto;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- getElementByClass -->
+		<div class="box">
+			<div class="sqr">You</div>
+			<div class="sqr">Are</div>
+			<div class="sqr">Good</div>
+		</div>
+		<div class="btn"  onclick="classs()">Click Me</div>
+
+		<!-- getElementByTagName -->
+		<br><br><br><br>
+		<p>
+			Nature is the ultimate source of our living. Both living and non-living things include nature, and everyone is
+			interdependent, which helps maintain the ecosystem.
+		</p>
+		<p>
+			Plants, animals, and humans all depend on nature for their survival. It supplies oxygen, sunlight, soil, water, and other necessary components.
+		</p>
+		<div class="btn" onclick="tag()">Click Me</div>
+
+
+		<script type="text/javascript">
+			
+			// <!-- getElementByClass -->
+
+			function classs()
+			{	
+				document.getElementsByClassName('sqr')[0].style.boxShadow = " inset 0px 0px 60px 15px black";
+				document.getElementsByClassName('sqr')[0].style.border = "10px double red";
+				document.getElementsByClassName('sqr')[0].style.fontFamily = "cursive";
+				document.getElementsByClassName('sqr')[0].style.color = "red";
+
+ 			    let a = document.getElementsByClassName("sqr")[1]; // badha ma aksathe na lage index wise apiye to lage
+				a.style.color = "darkblue";
+				a.style.background = "lightblue";
+				a.style.fontSize = "50px";
+				a.style.border = "15px dotted darkblue";
+				
+				let b = document.getElementsByClassName("sqr")[2]; 
+				b.style.background = "lightpink";
+				b.style.color = "white";
+				b.style.fontSize = "55px";
+				b.style.border = "10px solid white";
+
+				console.log(a);
+				console.log(b);
+			}
+
+			// < !--getElementByTagName -->
+
+			function tag()
+			{
+				document.getElementsByTagName("p")[0].style.color = "crimson";
+				document.getElementsByTagName("p")[0].style.fontFamily = "cursive";
+
+				document.getElementsByTagName("p")[1].style.color = "blue";
+				let see = document.getElementsByTagName("p")[1];
+				see.style.fontSize = "30px";
+
+				// console.log(see); console print na karaviye to pn print thai jai 6
+			}
+
+		</script>
+	</body>
+</html>

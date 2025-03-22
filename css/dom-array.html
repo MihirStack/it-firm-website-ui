@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Document</title>
+		<style>
+			*{
+				transition: all .3s ease;
+			}
+			.box{
+				width: 1000px;
+				height: 600px;
+ 				margin: 0px auto;
+				padding: 20px;
+				background-image: url('../../JAVASCRIPT/class_learning/images/bike.jpg');
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+				border-radius: 5px;
+			}
+			.box2{
+				width: 450px;
+				height: 450px;
+				background-color: rgba(80, 173, 173, 0.588);
+				color: white;
+				backdrop-filter: blur(10px);
+				border-radius: 0px 80px;
+ 				margin: 5px;
+				padding: 20px 30px 0px;
+				text-align: center;
+			}
+			.box3{
+				width: 250px;
+				height: 250px;
+				text-align: left;
+				margin: 0 auto;
+			}
+			input{
+ 				margin: 0px auto;
+				margin-bottom: 15px;
+				padding: 12px;
+				border-radius: 15px;
+				font-family: Verdana, Geneva, Tahoma, sans-serif;
+				font-size: 16px;
+				font-weight: 500;
+				border: none;
+				outline: none;
+				color: white;
+				background-color: transparent;
+				border: 1px solid white;
+ 			}
+			input::placeholder{
+				color: white;
+			}
+			.btn{
+				/* display: block; */
+				width: 120px;
+				padding: 15px 20px;
+				font-family: Verdana, Geneva, Tahoma, sans-serif;
+				font-size: 16px;
+				letter-spacing: 0.6px;
+				font-weight: 800;
+				color: white;
+				background-color: transparent;
+				border-radius: 15px;
+				margin-top: 20px;
+				outline: none;
+				border: 1px solid white;
+ 				cursor: pointer;
+			}
+			.btn:hover{
+				box-shadow: 0px 0px 5px 1px #FFF;
+			}
+			table,th,td{
+				border: 2px solid black;
+				border-collapse: collapse;
+				padding: 5px 20px;
+				margin: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="box2">
+				<div class="box3">
+					<input type="text" placeholder="Enter Your Name" id="name"><br><br>
+					<input type="email" placeholder="Enter Your Email" id="email"><br><br>
+					<input type="password" placeholder="Enter Your Password" id="password"><br><br>
+					<input type="checkbox" value="javascript" name="course"> JAVASCRIPT <br>
+					<input type="checkbox" value="c" name="course"> C <br>
+					<input type="checkbox" value="node-js" name="course"> NODE - JS <br>
+					<input type="button" class="btn" value="Click" onclick="save()" />
+				</div>
+			</div>
+		</div><br><br><br>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Password</th>
+				<th>Course</th>
+			</tr>
+			<tbody id="record">
+
+			</tbody>
+		</table>
+
+		<script type="text/javascript">
+			let data = [];
+			viewdata();
+			function save()
+			{
+				let name = document.getElementById('name').value;
+				let email = document.getElementById('email').value;
+				let password = document.getElementById('password').value;
+				let subject = document.getElementsByName('course');
+				let subjectData = [];
+				for(let i in subject)
+				{
+					if(subject[i].checked)
+					{
+						subjectData.push(subject[i].value);
+					}
+				}	
+				let obj = {
+					username : name,
+					useremail : email,
+					userpassword : password,
+					usercourse : subjectData,
+				}
+				data.push(obj);
+				console.log(data);
+				viewdata();
+				clearData();
+ 			}
+
+			function viewdata()
+			{
+				let tbl ="";
+				data.map((val)=>{
+					const {username,useremail,userpassword,usercourse} = val;
+					tbl +=`
+							<tr>
+								<td>${username}</td>
+								<td>${useremail}</td>
+								<td>${userpassword}</td>
+								<td>${usercourse}</td>
+							</tr>
+							`
+				});
+				document.getElementById('record').innerHTML = tbl;
+			
+			}
+			function clearData()
+			{
+				document.getElementById('name').value = "";
+				document.getElementById('email').value = "";
+				document.getElementById('password').value = "";
+				document.getElementById('course').value = "";
+			}
+		</script>
+	</body>
+</html>
